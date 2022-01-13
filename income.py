@@ -91,6 +91,7 @@ class NetIncome:
 	def getNetIncome(self):
 		return self.net_income
 
+#implement for different filing statuses
 	def federalBracket(self, income):
 		if income <= 0:
 			return 0 
@@ -116,6 +117,7 @@ class NetIncome:
 		else:
 			return income * 0.10
 
+#implement for different filing statuses
 	def stateBracket(self, income):
 		if income <= 0:
 			return 0 
@@ -147,6 +149,7 @@ class NetIncome:
 		else:
 			return income * 0.01
 
+#implement for different filing statuses
 	def getFederalDeductionMax(self):
 		self.federal_deduction = min(self.federal_deduction, self.gross)
 		return self.federal_deduction
@@ -170,6 +173,9 @@ class NetIncome:
 		if max_contribution == 0 or max_contribution >= 144000:
 			return 0
 
+		elif max_contribution <= 6000:
+			pass
+			
 		elif max_contribution <= 129000:
 			max_contribution = 6000
 
