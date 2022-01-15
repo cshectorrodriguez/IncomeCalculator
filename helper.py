@@ -29,6 +29,7 @@ def getUserIncome():
 			amount = input("ENTER YOUR YEARLY INCOME: ")
 			if amount.isnumeric():
 				if int(amount) > -1 : return int(amount)
+				amount = -1
 				raise
 			elif amount.upper() in ["QUIT", "RESTART"]: 
 				return amount.upper()
@@ -48,11 +49,12 @@ def getUserAmount(account_type, contribution_deduction, max_amount):
 	while amount < 0:
 		try:
 			amount = input("\nENTER {} {} AMOUNT: ".format(account_type, contribution_deduction))
-			if amount.isnumeric():
-				if 0 <= int(amount) and int(amount) <= max_amount: return int(amount)
-				raise
-			elif amount.upper() == "MAX": # max standard deduction for federal/state
-				return int(max_amount)
+ 			if amount.isnumeric():
+ 				if 0 <= int(amount) and int(amount) <= max_amount: return int(amount)
+				amount = -1
+ 				raise
+ 			elif amount.upper() == "MAX": # max standard deduction for federal/state
+ 				return int(max_amount)
 			elif amount.upper() in ["QUIT", "RESTART"]: 
 				return amount.upper()
 			elif amount.upper() == "INFO":

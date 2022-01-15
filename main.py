@@ -6,6 +6,11 @@ import time
 def main():
 	loop = True
 	while loop:
+		print("\n\nWELCOME TO THE TAX PREPARATION CALCULATOR!\n")
+		print("---YOU MAY ENTER ANY OF THESE KEYWORDS AT ANY TIME---")
+		print("INFO - TYPE THIS TO GET MORE INFORMATION ABOUT HOW TO ANSWER THE QUESTION")
+		print("RESTART - TYPE THIS TO RESTART THE PROGRAM")
+		print("QUIT - TYPE THIS TO QUIT THE PROGRAM\n\n")
 		status = getUserFilingStatus()
 		if status == "QUIT" : loop = False
 		if status in ["QUIT", "RESTART"]: continue
@@ -61,7 +66,8 @@ def main():
 
 		income.setNetIncome()
 		printStatistics(income)
-		time.sleep(60)
+		input("\nPRESS ENTER TO CONTINUE")
+		# time.sleep(60)
 
 if __name__ == '__main__':
 	main()
